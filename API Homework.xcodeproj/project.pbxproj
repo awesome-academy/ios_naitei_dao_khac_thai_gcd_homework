@@ -13,6 +13,15 @@
 		E437E13C2A5D03C5002862A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E437E13A2A5D03C5002862A7 /* Main.storyboard */; };
 		E437E13E2A5D03C6002862A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E437E13D2A5D03C6002862A7 /* Assets.xcassets */; };
 		E437E1412A5D03C6002862A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E437E13F2A5D03C6002862A7 /* LaunchScreen.storyboard */; };
+		E437E1492A5D2684002862A7 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1482A5D2684002862A7 /* APICaller.swift */; };
+		E437E14D2A5D3E48002862A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E14C2A5D3E48002862A7 /* UserData.swift */; };
+		E437E14F2A5D3ED1002862A7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E14E2A5D3ED1002862A7 /* UserProfile.swift */; };
+		E437E1512A5D401C002862A7 /* FollowerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1502A5D401C002862A7 /* FollowerUser.swift */; };
+		E437E1552A5D578E002862A7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1542A5D578E002862A7 /* UserProfileViewController.swift */; };
+		E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF632A5E8CF800A8695C /* UserCell.swift */; };
+		E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */; };
+		E4E0CF682A5E9CAF00A8695C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF672A5E9CAF00A8695C /* Constants.swift */; };
+		E4E0CF6A2A5E9F6F00A8695C /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF692A5E9F6F00A8695C /* APIResponses.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +33,15 @@
 		E437E13D2A5D03C6002862A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E437E1402A5D03C6002862A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E437E1422A5D03C6002862A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E437E1482A5D2684002862A7 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		E437E14C2A5D3E48002862A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		E437E14E2A5D3ED1002862A7 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		E437E1502A5D401C002862A7 /* FollowerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUser.swift; sourceTree = "<group>"; };
+		E437E1542A5D578E002862A7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		E4E0CF632A5E8CF800A8695C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserViewController.swift; sourceTree = "<group>"; };
+		E4E0CF672A5E9CAF00A8695C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4E0CF692A5E9F6F00A8695C /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +76,20 @@
 			children = (
 				E437E1342A5D03C5002862A7 /* AppDelegate.swift */,
 				E437E1362A5D03C5002862A7 /* SceneDelegate.swift */,
+				E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */,
+				E437E1542A5D578E002862A7 /* UserProfileViewController.swift */,
 				E437E1382A5D03C5002862A7 /* ViewController.swift */,
+				E4E0CF632A5E8CF800A8695C /* UserCell.swift */,
 				E437E13A2A5D03C5002862A7 /* Main.storyboard */,
 				E437E13D2A5D03C6002862A7 /* Assets.xcassets */,
 				E437E13F2A5D03C6002862A7 /* LaunchScreen.storyboard */,
 				E437E1422A5D03C6002862A7 /* Info.plist */,
+				E437E1482A5D2684002862A7 /* APICaller.swift */,
+				E4E0CF692A5E9F6F00A8695C /* APIResponses.swift */,
+				E437E14C2A5D3E48002862A7 /* UserData.swift */,
+				E437E14E2A5D3ED1002862A7 /* UserProfile.swift */,
+				E437E1502A5D401C002862A7 /* FollowerUser.swift */,
+				E4E0CF672A5E9CAF00A8695C /* Constants.swift */,
 			);
 			path = "API Homework";
 			sourceTree = "<group>";
@@ -139,8 +166,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E437E1392A5D03C5002862A7 /* ViewController.swift in Sources */,
+				E4E0CF682A5E9CAF00A8695C /* Constants.swift in Sources */,
+				E437E1552A5D578E002862A7 /* UserProfileViewController.swift in Sources */,
 				E437E1352A5D03C5002862A7 /* AppDelegate.swift in Sources */,
+				E437E14F2A5D3ED1002862A7 /* UserProfile.swift in Sources */,
+				E4E0CF6A2A5E9F6F00A8695C /* APIResponses.swift in Sources */,
+				E437E1512A5D401C002862A7 /* FollowerUser.swift in Sources */,
+				E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */,
 				E437E1372A5D03C5002862A7 /* SceneDelegate.swift in Sources */,
+				E437E14D2A5D3E48002862A7 /* UserData.swift in Sources */,
+				E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */,
+				E437E1492A5D2684002862A7 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
