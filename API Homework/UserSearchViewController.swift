@@ -1,6 +1,6 @@
 import UIKit
 
-final class ViewController: UIViewController {
+final class UserSearchViewController: UIViewController {
     @IBOutlet private weak var searchInput: UITextField!
     @IBOutlet private weak var favoriteButton: UIButton!
     @IBOutlet private weak var searchButton: UIButton!
@@ -12,7 +12,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userList.count
@@ -20,17 +20,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        guard let imageURL = URL(string: userList[indexPath.row].getAvatarURL()) else { return cell }
+        guard let imageURL = URL(string: userList[indexPath.row].avatarURL!) else { return cell }
         if let data = try? Data(contentsOf: imageURL) {
             if let image = UIImage(data: data) {
-                cell.setUserCell(name: userList[indexPath.row].getLogin(), git:userList[indexPath.row].getHtmlURL(),
+                cell.setUserCell(name: userList[indexPath.row].login! , git:userList[indexPath.row].htmlURL! ,
                                  image: image)
             }
         }
         return cell
     }
-    
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Constants.toUserProfileSegue, sender: userList[indexPath.row])

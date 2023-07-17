@@ -1,6 +1,6 @@
 import UIKit
 
-class UserProfileViewController: UIViewController {
+final class UserProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Search View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="API_Homework" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="UserSearchViewController" customModule="API_Homework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -122,9 +122,9 @@
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="VtA-iK-hYy"/>
                     <connections>
-                        <outlet property="favoriteButton" destination="GPV-Dy-hJm" id="IfW-fb-0L2"/>
-                        <outlet property="searchButton" destination="y8Z-wY-oxn" id="cpa-bf-Rgy"/>
-                        <outlet property="searchInput" destination="BeH-Wp-LL1" id="0QS-Su-c2q"/>
+                        <outlet property="favoriteButton" destination="GPV-Dy-hJm" id="Kap-1m-Mef"/>
+                        <outlet property="searchButton" destination="y8Z-wY-oxn" id="VOe-E2-FIV"/>
+                        <outlet property="searchInput" destination="BeH-Wp-LL1" id="J2B-Bg-77G"/>
                         <segue destination="VgA-6R-n5Q" kind="show" identifier="toUserProfileSegue" id="cxe-SQ-0Bj"/>
                         <segue destination="qnA-KW-6gT" kind="show" identifier="toFavoriteUserSegue" id="jpV-wj-2vo"/>
                     </connections>
@@ -377,9 +377,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ihY-R2-h3H">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>

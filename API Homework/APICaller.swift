@@ -6,78 +6,42 @@ final class APICaller{
     
     private init(){}
     
-    public func getUserData(searchKey: String, completion: @escaping (Result<[String], Error>) -> Void) {
-        guard let url = URL(string: Constants.searchURL + searchKey) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _ , error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APISearchResponse.self, from: data)
-                }
-                catch {
-                    completion(.failure(error))
-                }
-            }
-        }
-        task.resume()
+    enum HTTPMethod: String {
+        case GET
+        case POST
+        case PUT
+        case DELETE
     }
     
-    public func getUserProfile(searchKey: String, completion: @escaping (Result<[String], Error>) -> Void) {
-        guard let url = URL(string: Constants.profileURL + searchKey) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _ , error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIProfileResponse.self, from: data)
-                }
-                catch {
-                    completion(.failure(error))
-                }
-            }
+    func createRequest(with url: URL?, type: HTTPMethod, completion: @escaping (URLRequest) -> Void) {
+        guard let apiURL = url else {
+            return
         }
-        task.resume()
+        var request = URLRequest(url: apiURL)
+        request.httpMethod = type.rawValue
+        completion(request)
     }
     
-    public func getFollowers(searchKey: String, completion: @escaping (Result<[String], Error>) -> Void) {
-        guard let url = URL(string: Constants.profileURL + searchKey + Constants.followersURL) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _ , error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIFollowerResponse.self, from: data)
-                }
-                catch {
+    func getRequest<T: Codable, P:BaseRequestParams>(request params: P, baseURL: String, endpoint: String, completion: @escaping(Result<T, Error>) -> Void) {
+        createRequest(with: URL(string: baseURL + endpoint + params.toString()), type: .GET) { baseRequest in
+            let task = URLSession.shared.dataTask(with: baseRequest) { data, _, error in
+                if let error = error {
                     completion(.failure(error))
                 }
-            }
-        }
-        task.resume()
-    }
-    
-    public func getFollowingUsers(searchKey: String, completion: @escaping (Result<[String], Error>) -> Void) {
-        guard let url = URL(string: Constants.profileURL + searchKey + Constants.followingURL) else { return }
-        let task = URLSession.shared.dataTask(with: url) { data, _ , error in
-            if let error = error {
-                completion(.failure(error))
-            }
-            else if let data = data {
-                do {
-                    let result = try JSONDecoder().decode(APIFollowerResponse.self, from: data)
-                }
-                catch {
-                    completion(.failure(error))
+               else if let data = data {
+                   do {
+                       let result = try JSONDecoder().decode(T.self, from: data)
+                       completion(.success(result))
+                   }
+                   
+                   catch {
+                       completion(.failure(error))
+                   }
                 }
             }
+            task.resume()
         }
-        task.resume()
     }
 }
-
 
 

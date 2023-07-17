@@ -5,7 +5,7 @@ struct APISearchResponse: Codable {
 }
 
 struct APIProfileResponse: Codable {
-   private  let responseProfileData : UserProfile
+   private let responseProfileData : UserProfile
 }
 
 struct APIFollowerResponse: Codable {
