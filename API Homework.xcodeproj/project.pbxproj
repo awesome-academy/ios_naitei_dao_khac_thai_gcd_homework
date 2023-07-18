@@ -20,8 +20,8 @@
 		E437E1492A5D2684002862A7 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1482A5D2684002862A7 /* APICaller.swift */; };
 		E437E14D2A5D3E48002862A7 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E14C2A5D3E48002862A7 /* UserData.swift */; };
 		E437E14F2A5D3ED1002862A7 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E14E2A5D3ED1002862A7 /* UserProfile.swift */; };
-		E437E1512A5D401C002862A7 /* FollowerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1502A5D401C002862A7 /* FollowerUser.swift */; };
 		E437E1552A5D578E002862A7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1542A5D578E002862A7 /* UserProfileViewController.swift */; };
+		E47C27452A6642E700B17755 /* LayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47C27442A6642E700B17755 /* LayoutSettings.swift */; };
 		E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF632A5E8CF800A8695C /* UserCell.swift */; };
 		E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */; };
 		E4E0CF682A5E9CAF00A8695C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF672A5E9CAF00A8695C /* Constants.swift */; };
@@ -44,8 +44,8 @@
 		E437E1482A5D2684002862A7 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		E437E14C2A5D3E48002862A7 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E437E14E2A5D3ED1002862A7 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		E437E1502A5D401C002862A7 /* FollowerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerUser.swift; sourceTree = "<group>"; };
 		E437E1542A5D578E002862A7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		E47C27442A6642E700B17755 /* LayoutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettings.swift; sourceTree = "<group>"; };
 		E4E0CF632A5E8CF800A8695C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserViewController.swift; sourceTree = "<group>"; };
 		E4E0CF672A5E9CAF00A8695C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -97,11 +97,11 @@
 				E4303F982A65249900742590 /* UserRepository.swift */,
 				E437E14C2A5D3E48002862A7 /* UserData.swift */,
 				E437E14E2A5D3ED1002862A7 /* UserProfile.swift */,
-				E437E1502A5D401C002862A7 /* FollowerUser.swift */,
 				E4E0CF672A5E9CAF00A8695C /* Constants.swift */,
 				E4303F9A2A65251B00742590 /* EndPoints.swift */,
 				E4303F9C2A6525B700742590 /* RequestParams.swift */,
 				E4303F9E2A652E7B00742590 /* ServiceManager.swift */,
+				E47C27442A6642E700B17755 /* LayoutSettings.swift */,
 			);
 			path = "API Homework";
 			sourceTree = "<group>";
@@ -184,7 +184,6 @@
 				E437E14F2A5D3ED1002862A7 /* UserProfile.swift in Sources */,
 				E4303F9D2A6525B700742590 /* RequestParams.swift in Sources */,
 				E4E0CF6A2A5E9F6F00A8695C /* APIResponses.swift in Sources */,
-				E437E1512A5D401C002862A7 /* FollowerUser.swift in Sources */,
 				E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */,
 				E437E1372A5D03C5002862A7 /* SceneDelegate.swift in Sources */,
 				E4303F972A65225600742590 /* UserSearchViewController.swift in Sources */,
@@ -192,6 +191,7 @@
 				E4303F9B2A65251B00742590 /* EndPoints.swift in Sources */,
 				E437E14D2A5D3E48002862A7 /* UserData.swift in Sources */,
 				E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */,
+				E47C27452A6642E700B17755 /* LayoutSettings.swift in Sources */,
 				E437E1492A5D2684002862A7 /* APICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

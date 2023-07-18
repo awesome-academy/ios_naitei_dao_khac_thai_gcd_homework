@@ -1,6 +1,6 @@
 import Foundation
 
-enum Endpoints: String {
+enum EndPoints: String {
     case searchEndPoint    = "/search/users"
     case profileEndPoint   = "/users"
 }

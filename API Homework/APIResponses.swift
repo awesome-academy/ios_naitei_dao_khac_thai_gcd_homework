@@ -9,5 +9,5 @@ struct APIProfileResponse: Codable {
 }
 
 struct APIFollowerResponse: Codable {
-    private let responseFollowerList : [FollowerUser]
+    private let responseFollowerList : [UserData]
 }
