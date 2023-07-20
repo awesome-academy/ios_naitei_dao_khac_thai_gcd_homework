@@ -32,6 +32,6 @@ struct SearchUserRequestParams: BaseRequestParams {
     let searchKey: String
     
     public func toString() -> String {
-        return "?q=\(searchKey)+in:login"
+        return "?q=\(searchKey)"
     }
 }

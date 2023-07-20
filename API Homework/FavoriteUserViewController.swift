@@ -1,7 +1,7 @@
 import UIKit
 
 final class FavoriteUserViewController: UIViewController {
-    private var users: [UserData] = []
+    private var users: [User] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,14 +15,9 @@ extension FavoriteUserViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        guard let imageURL = URL(string: users[indexPath.row].avatarURL ?? "") else { return cell }
-        if let data = try? Data(contentsOf: imageURL) {
-            if let image = UIImage(data: data) {
-                cell.setUserCell(name: users[indexPath.row].login ?? "" , git:users[indexPath.row].htmlURL ?? "" ,
-                                 image: image)
-            }
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomUserCell", for: indexPath) as? UserCell
+        else { return UITableViewCell() }
+        cell.setUserCell(user: users[indexPath.row])
         return cell
     }
     

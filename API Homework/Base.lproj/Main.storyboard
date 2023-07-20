@@ -31,7 +31,7 @@
                                 <rect key="frame" x="0.0" y="203" width="393" height="649"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="96" id="evc-OD-cYl" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomUserCell" rowHeight="96" id="evc-OD-cYl" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="evc-OD-cYl" id="0wp-O8-snP">
@@ -118,6 +118,8 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="VtA-iK-hYy"/>
                     <connections>
                         <outlet property="favoriteButton" destination="GPV-Dy-hJm" id="Kap-1m-Mef"/>
+                        <outlet property="searchBar" destination="kMz-xc-sYq" id="U06-hq-syS"/>
+                        <outlet property="tableView" destination="R4V-Cg-Ozy" id="Pmz-U6-a6g"/>
                         <segue destination="VgA-6R-n5Q" kind="show" identifier="toUserProfileSegue" id="cxe-SQ-0Bj"/>
                         <segue destination="qnA-KW-6gT" kind="show" identifier="toFavoriteUserSegue" id="jpV-wj-2vo"/>
                     </connections>
@@ -231,6 +233,7 @@
                                     <constraint firstItem="L1a-0t-iyw" firstAttribute="top" secondItem="Mca-vF-aV8" secondAttribute="bottom" id="eJv-vp-yyq"/>
                                     <constraint firstItem="rhc-C5-Pea" firstAttribute="top" secondItem="HLa-kr-rqv" secondAttribute="top" constant="10" id="gUU-Ko-Vck"/>
                                     <constraint firstItem="LWp-1s-hn7" firstAttribute="top" secondItem="PnQ-bp-iQs" secondAttribute="bottom" id="i5K-Iu-Ia7"/>
+                                    <constraint firstItem="Bmf-uK-rm4" firstAttribute="leading" secondItem="LWp-1s-hn7" secondAttribute="trailing" constant="104" id="tDV-S3-BQF"/>
                                     <constraint firstItem="LWp-1s-hn7" firstAttribute="leading" secondItem="HLa-kr-rqv" secondAttribute="leading" constant="36" id="uaK-He-77B"/>
                                     <constraint firstAttribute="trailing" secondItem="Mca-vF-aV8" secondAttribute="trailing" constant="15" id="z9t-h5-G7J"/>
                                     <constraint firstItem="Bmf-uK-rm4" firstAttribute="centerX" secondItem="HLa-kr-rqv" secondAttribute="centerX" id="zbW-sN-5ok"/>
@@ -275,7 +278,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="DtW-eH-oqM" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomUserCell" id="DtW-eH-oqM" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DtW-eH-oqM" id="7Cs-jf-ovo">
@@ -332,7 +335,7 @@
                                 <rect key="frame" x="0.0" y="120" width="393" height="732"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mSV-cz-GqE" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CustomUserCell" id="mSV-cz-GqE" customClass="UserCell" customModule="API_Homework" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mSV-cz-GqE" id="d7i-zi-MdV">

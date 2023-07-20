@@ -4,7 +4,8 @@ final class UserCell: UITableViewCell {
     @IBOutlet private weak var avatar: UIImageView!
     @IBOutlet private weak var name  : UILabel!
     @IBOutlet private weak var git   : UILabel!
-
+    private let apiCaller = APICaller.shared
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -13,9 +14,21 @@ final class UserCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setUserCell(name: String, git: String, image: UIImage) {
-        self.name.text    = name
-        self.git.text     = git
-        self.avatar.image = image
+    func setUserCell(user: User) {
+        self.apiCaller.getImage(imageURL: (user.avatarURL ?? "")) { [weak self] (data, error)  in
+            guard let self = self else { return }
+            if let error = error {
+                print(error)
+                return
+            }
+            if let data = data {
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.avatar.image = UIImage(data: data)
+                }
+            }
+        }
+        self.name.text = user.login
+        self.git.text  = user.htmlURL
     }
 }
