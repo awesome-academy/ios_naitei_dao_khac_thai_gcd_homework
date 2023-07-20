@@ -1,13 +1,19 @@
 import Foundation
 
 struct APISearchResponse: Codable {
-    private let responseUserData : [UserData]
+    let totalCount: Int
+    let items : [User]
+    
+    enum CodingKeys: String, CodingKey {
+        case totalCount = "total_count"
+        case items = "items"
+    }
 }
 
 struct APIProfileResponse: Codable {
-   private let responseProfileData : UserProfile
+    let profileResponse : UserProfile
 }
 
 struct APIFollowerResponse: Codable {
-    private let responseFollowerList : [UserData]
+    let followerResponses : [User]
 }

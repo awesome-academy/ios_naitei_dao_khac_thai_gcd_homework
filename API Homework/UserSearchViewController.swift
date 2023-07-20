@@ -1,13 +1,30 @@
 import UIKit
 
 final class UserSearchViewController: UIViewController {
-    @IBOutlet private weak var searchInput: UITextField!
+    @IBOutlet private weak var searchBar: UISearchBar!
     @IBOutlet private weak var favoriteButton: UIButton!
-    @IBOutlet private weak var searchButton: UIButton!
-    private var users: [UserData] = []
+    @IBOutlet private weak var tableView: UITableView!
+    
+    private var users: [User] = []
+    private var serviceProvider: RepositoryImplementation = RepositoryImplementation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getSearchUser(name: "abc")
+    }
+    
+    private func getSearchUser(name: String) {
+        serviceProvider.getSearchUser(params: SearchUserRequestParams(searchKey: name)) { [weak self] (data, error) in
+            guard let self = self else { return }
+            if let error = error { print("Error fetching search users: \(error.localizedDescription)") }
+            if let data = data {
+                self.users = data
+                DispatchQueue.main.async { [weak self] in
+                    guard let self = self else { return }
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
 }
 
@@ -18,14 +35,9 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UserCell", for: indexPath) as! UserCell
-        guard let imageURL = URL(string: users[indexPath.row].avatarURL ?? "") else { return cell }
-        if let data = try? Data(contentsOf: imageURL) {
-            if let image = UIImage(data: data) {
-                cell.setUserCell(name: users[indexPath.row].login ?? "" , git:users[indexPath.row].htmlURL ?? "" ,
-                                 image: image)
-            }
-        }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CustomUserCell", for: indexPath) as? UserCell
+        else { return UITableViewCell() }
+        cell.setUserCell(user: users[indexPath.row])
         return cell
     }
     
@@ -37,5 +49,4 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
         let cellHeight = LayoutSettings.cellHeight.rawValue
         return cellHeight
     }
-    
 }
