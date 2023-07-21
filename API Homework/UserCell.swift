@@ -8,6 +8,7 @@ final class UserCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        avatar.circleView()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -28,7 +29,7 @@ final class UserCell: UITableViewCell {
                 }
             }
         }
-        self.name.text = user.login
-        self.git.text  = user.htmlURL
+        name.text = user.login
+        git.text  = user.htmlURL
     }
 }

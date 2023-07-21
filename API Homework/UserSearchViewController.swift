@@ -7,6 +7,8 @@ final class UserSearchViewController: UIViewController {
     
     private var users: [User] = []
     private var serviceProvider: RepositoryImplementation = RepositoryImplementation()
+    private var previousText: String = "abc"
+    private var timer: Timer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,11 +44,31 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Constants.toUserProfileSegue, sender: users[indexPath.row])
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let profileScreen = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
+        profileScreen?.bindData(user: users[indexPath.row])
+        self.navigationController?.pushViewController(profileScreen!, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellHeight = LayoutSettings.cellHeight.rawValue
         return cellHeight
+    }
+}
+
+extension UserSearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var query = searchText
+        query = query.replacingOccurrences(of: " ", with: "")
+        if query.isEmpty {
+            self.getSearchUser(name: self.previousText)
+        } else {
+            if query.trimmingCharacters(in: .whitespaces).count >= 3 {
+                self.previousText = query
+                timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: false, block: { (timer) in
+                    self.getSearchUser(name: query)
+                })
+            }
+        }
     }
 }

@@ -22,11 +22,13 @@
 		E437E1552A5D578E002862A7 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E437E1542A5D578E002862A7 /* UserProfileViewController.swift */; };
 		E46CA4F22A68DC950081953A /* RepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E46CA4F12A68DC950081953A /* RepositoryImplementation.swift */; };
 		E47C27452A6642E700B17755 /* LayoutSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47C27442A6642E700B17755 /* LayoutSettings.swift */; };
+		E47E09392A6E29E500870620 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47E09382A6E29E500870620 /* Colors.swift */; };
 		E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF632A5E8CF800A8695C /* UserCell.swift */; };
 		E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */; };
 		E4E0CF682A5E9CAF00A8695C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF672A5E9CAF00A8695C /* Constants.swift */; };
 		E4E0CF6A2A5E9F6F00A8695C /* APIResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E0CF692A5E9F6F00A8695C /* APIResponses.swift */; };
 		E4EFFA6E2A6A147D0090C5C8 /* NetworkErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EFFA6D2A6A147D0090C5C8 /* NetworkErrors.swift */; };
+		E4EFFA702A6A6B540090C5C8 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4EFFA6F2A6A6B540090C5C8 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,11 +49,13 @@
 		E437E1542A5D578E002862A7 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E46CA4F12A68DC950081953A /* RepositoryImplementation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryImplementation.swift; sourceTree = "<group>"; };
 		E47C27442A6642E700B17755 /* LayoutSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSettings.swift; sourceTree = "<group>"; };
+		E47E09382A6E29E500870620 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E4E0CF632A5E8CF800A8695C /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		E4E0CF652A5E902F00A8695C /* FavoriteUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteUserViewController.swift; sourceTree = "<group>"; };
 		E4E0CF672A5E9CAF00A8695C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4E0CF692A5E9F6F00A8695C /* APIResponses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponses.swift; sourceTree = "<group>"; };
 		E4EFFA6D2A6A147D0090C5C8 /* NetworkErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrors.swift; sourceTree = "<group>"; };
+		E4EFFA6F2A6A6B540090C5C8 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				E4303F9C2A6525B700742590 /* RequestParams.swift */,
 				E47C27442A6642E700B17755 /* LayoutSettings.swift */,
 				E4EFFA6D2A6A147D0090C5C8 /* NetworkErrors.swift */,
+				E4EFFA6F2A6A6B540090C5C8 /* Extensions.swift */,
+				E47E09382A6E29E500870620 /* Colors.swift */,
 			);
 			path = "API Homework";
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4303F992A65249900742590 /* UserRepository.swift in Sources */,
+				E4EFFA702A6A6B540090C5C8 /* Extensions.swift in Sources */,
 				E4E0CF682A5E9CAF00A8695C /* Constants.swift in Sources */,
 				E437E1552A5D578E002862A7 /* UserProfileViewController.swift in Sources */,
 				E437E1352A5D03C5002862A7 /* AppDelegate.swift in Sources */,
@@ -191,6 +198,7 @@
 				E43538A82A67D2B900407286 /* User.swift in Sources */,
 				E4E0CF642A5E8CF800A8695C /* UserCell.swift in Sources */,
 				E437E1372A5D03C5002862A7 /* SceneDelegate.swift in Sources */,
+				E47E09392A6E29E500870620 /* Colors.swift in Sources */,
 				E4303F972A65225600742590 /* UserSearchViewController.swift in Sources */,
 				E4303F9B2A65251B00742590 /* EndPoints.swift in Sources */,
 				E4E0CF662A5E902F00A8695C /* FavoriteUserViewController.swift in Sources */,
