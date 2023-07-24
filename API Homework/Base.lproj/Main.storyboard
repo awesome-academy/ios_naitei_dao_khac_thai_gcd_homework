@@ -26,6 +26,9 @@
                                 <buttonConfiguration key="configuration" style="plain" image="heart.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="23" scale="large" weight="black"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoriteButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0bt-pL-4nJ"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R4V-Cg-Ozy">
                                 <rect key="frame" x="0.0" y="203" width="393" height="649"/>
@@ -88,13 +91,10 @@
                             </tableView>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="kMz-xc-sYq">
                                 <rect key="frame" x="15" y="123" width="280" height="50"/>
-                                <color key="backgroundColor" red="0.28817056889999998" green="0.38553993539999998" blue="0.35059493460000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2rR-DO-DVb"/>
                                     <constraint firstAttribute="width" constant="280" id="53X-84-U56"/>
                                 </constraints>
-                                <color key="tintColor" red="0.28817056889999998" green="0.38553993539999998" blue="0.35059493460000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vmR-5V-0cD"/>
@@ -338,6 +338,21 @@
                                     <outlet property="delegate" destination="VgA-6R-n5Q" id="RCx-wF-vT3"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ih-ix-JuH">
+                                <rect key="frame" x="303" y="746" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="AFz-1N-1hj"/>
+                                    <constraint firstAttribute="height" constant="60" id="bKb-3P-ynT"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="24" weight="bold"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="favoriteButtonTapped:" destination="VgA-6R-n5Q" eventType="touchUpInside" id="Weo-HY-po1"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oFn-TV-TDn"/>
                         <color key="backgroundColor" red="0.28817056889999998" green="0.38553993539999998" blue="0.35059493460000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -353,10 +368,12 @@
                             <constraint firstItem="HLa-kr-rqv" firstAttribute="leading" secondItem="oFn-TV-TDn" secondAttribute="leading" constant="15" id="Ehy-OH-rr2"/>
                             <constraint firstItem="kbf-8o-iG1" firstAttribute="top" secondItem="oFn-TV-TDn" secondAttribute="top" constant="5" id="INu-zb-QYX"/>
                             <constraint firstItem="5RQ-jE-9Mt" firstAttribute="top" secondItem="vM7-bd-gkE" secondAttribute="bottom" constant="15" id="RvQ-bP-6tV"/>
+                            <constraint firstItem="oFn-TV-TDn" firstAttribute="trailing" secondItem="5Ih-ix-JuH" secondAttribute="trailing" constant="30" id="aWK-Ak-8fC"/>
                             <constraint firstItem="Wdt-Jz-zQM" firstAttribute="leading" secondItem="oFn-TV-TDn" secondAttribute="leading" id="b6x-wx-T9J"/>
                             <constraint firstItem="4Wy-Ee-kOA" firstAttribute="top" secondItem="Wdt-Jz-zQM" secondAttribute="bottom" id="cPT-DE-eaN"/>
                             <constraint firstItem="oFn-TV-TDn" firstAttribute="trailing" secondItem="5RQ-jE-9Mt" secondAttribute="trailing" constant="10" id="fnt-qT-QXm"/>
                             <constraint firstAttribute="trailing" secondItem="4Wy-Ee-kOA" secondAttribute="trailing" id="kCf-iH-K7e"/>
+                            <constraint firstItem="5Ih-ix-JuH" firstAttribute="centerY" secondItem="DBM-mX-jPO" secondAttribute="centerY" constant="350" id="nGu-i4-eqr"/>
                             <constraint firstItem="5RQ-jE-9Mt" firstAttribute="leading" secondItem="oFn-TV-TDn" secondAttribute="leading" constant="10" id="qld-IJ-2Hg"/>
                             <constraint firstAttribute="bottom" secondItem="4Wy-Ee-kOA" secondAttribute="bottom" id="xKV-mN-3PN"/>
                             <constraint firstItem="oFn-TV-TDn" firstAttribute="trailing" secondItem="vM7-bd-gkE" secondAttribute="trailing" constant="10" id="yat-ay-BdF"/>
@@ -364,8 +381,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="pw8-iq-Aw8"/>
                     <connections>
-                        <outlet property="avatar" destination="kbf-8o-iG1" id="5rE-An-rAZ"/>
+                        <outlet property="avatarImageView" destination="kbf-8o-iG1" id="5dF-4l-UTd"/>
                         <outlet property="bio" destination="5RQ-jE-9Mt" id="ZiE-2f-vh1"/>
+                        <outlet property="favoriteButton" destination="5Ih-ix-JuH" id="rhb-oL-vil"/>
                         <outlet property="followerCount" destination="LWp-1s-hn7" id="8PA-Wy-R7Y"/>
                         <outlet property="followersButton" destination="zu8-2M-ejI" id="uS0-cQ-DAZ"/>
                         <outlet property="followingButton" destination="KAS-S2-7nE" id="Ygu-2S-ZBC"/>
@@ -383,7 +401,7 @@
         <!--Favorite Users-->
         <scene sceneID="p62-ZC-S83">
             <objects>
-                <viewController id="qnA-KW-6gT" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qnA-KW-6gT" customClass="FavoriteUserViewController" customModule="API_Homework" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z41-2P-VOn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -400,14 +418,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fx4-ID-x85">
-                                                    <rect key="frame" x="30" y="5" width="75" height="67"/>
+                                                    <rect key="frame" x="30" y="25" width="75" height="75"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="75" id="40a-1G-yKV"/>
                                                         <constraint firstAttribute="height" constant="75" id="eDb-81-lRR"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1aC-z8-qmU">
-                                                    <rect key="frame" x="135" y="11" width="200" height="21"/>
+                                                    <rect key="frame" x="135" y="13" width="200" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="RRz-as-hkx"/>
                                                     </constraints>
@@ -416,7 +434,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Git url" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vzz-UA-Mj7">
-                                                    <rect key="frame" x="135" y="43" width="200" height="18"/>
+                                                    <rect key="frame" x="135" y="44.666666666666664" width="200" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="200" id="OBb-O1-XmW"/>
                                                     </constraints>
@@ -426,12 +444,11 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fx4-ID-x85" firstAttribute="top" secondItem="d7i-zi-MdV" secondAttribute="top" constant="5" id="061-6M-IRE"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Vzz-UA-Mj7" secondAttribute="bottom" constant="5" id="3fL-Gu-ctE"/>
+                                                <constraint firstItem="Fx4-ID-x85" firstAttribute="top" secondItem="d7i-zi-MdV" secondAttribute="top" constant="25" id="061-6M-IRE"/>
                                                 <constraint firstItem="1aC-z8-qmU" firstAttribute="leading" secondItem="Fx4-ID-x85" secondAttribute="trailing" constant="30" id="8EL-sd-V7H"/>
-                                                <constraint firstItem="1aC-z8-qmU" firstAttribute="top" secondItem="d7i-zi-MdV" secondAttribute="topMargin" id="Bzw-TX-DDv"/>
+                                                <constraint firstItem="Vzz-UA-Mj7" firstAttribute="centerY" secondItem="d7i-zi-MdV" secondAttribute="centerY" constant="15" id="GOA-2v-iTt"/>
                                                 <constraint firstItem="Vzz-UA-Mj7" firstAttribute="leading" secondItem="Fx4-ID-x85" secondAttribute="trailing" constant="30" id="Gs4-eL-sYa"/>
-                                                <constraint firstAttribute="bottom" secondItem="Fx4-ID-x85" secondAttribute="bottom" constant="5" id="Jok-DA-oWQ"/>
+                                                <constraint firstItem="1aC-z8-qmU" firstAttribute="centerY" secondItem="d7i-zi-MdV" secondAttribute="centerY" constant="-15" id="TGS-Xh-LQt"/>
                                                 <constraint firstItem="Fx4-ID-x85" firstAttribute="leading" secondItem="d7i-zi-MdV" secondAttribute="leading" constant="30" id="V9d-QR-OX8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -458,6 +475,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorite Users" id="gfg-dZ-UHP"/>
+                    <connections>
+                        <outlet property="tableView" destination="iQU-mL-0t5" id="4kC-Sg-IMz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jlo-bB-Wdh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -489,6 +509,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart" catalog="system" width="128" height="107"/>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
