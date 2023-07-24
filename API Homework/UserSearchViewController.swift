@@ -15,6 +15,13 @@ final class UserSearchViewController: UIViewController {
         getSearchUser(name: "abc")
     }
     
+    @IBAction private func favoriteButtonTapped(_ sender: Any) {
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        guard let favoriteScreen = storyBoard.instantiateViewController(withIdentifier: "FavoriteUserViewController") as? FavoriteUserViewController else { return }
+        favoriteScreen.title = "Favorite"
+        self.navigationController?.pushViewController(favoriteScreen, animated: true)
+    }
+    
     private func getSearchUser(name: String) {
         serviceProvider.getSearchUser(params: SearchUserRequestParams(searchKey: name)) { [weak self] (data, error) in
             guard let self = self else { return }
@@ -45,9 +52,9 @@ extension UserSearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let profileScreen = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
-        profileScreen?.bindData(user: users[indexPath.row])
-        self.navigationController?.pushViewController(profileScreen!, animated: true)
+        guard let profileScreen = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController else { return }
+        profileScreen.bindData(user: users[indexPath.row])
+        self.navigationController?.pushViewController(profileScreen, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

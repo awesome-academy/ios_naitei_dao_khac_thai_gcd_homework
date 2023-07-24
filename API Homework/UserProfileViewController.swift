@@ -11,14 +11,18 @@ final class UserProfileViewController: UIViewController {
     @IBOutlet private weak var followersButton: UIButton!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var infoView: UIView!
+    @IBOutlet private weak var favoriteButton: UIButton!
     
     private let apiCaller = APICaller.shared
+    private let coreData = CoreData.shared
     private var serviceProvider: RepositoryImplementation = RepositoryImplementation()
     private var isFollowerButtonPressed: Bool = true
+    private var isFavorited = false
     private var user: User?
     private var followingUsers: [User] = []
     private var followerUsers: [User] = []
     private var primaryColor: Colors = .primaryColor
+    private var heartColor: Colors = .heartColor
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,7 @@ final class UserProfileViewController: UIViewController {
     
     private func configUI(){
         avatarImageView.circleView()
+        favoriteButton.circleView()
         configFollowerAndFollowingButton()
         infoView.layer.cornerRadius = 20
     }
@@ -45,6 +50,19 @@ final class UserProfileViewController: UIViewController {
          self.user = user
          self.updateUser(name: user.login ?? "")
          self.getFollowersAndFollowingUsers(name: user.login ?? "")
+         DispatchQueue.main.async { [weak self] in
+             guard let self = self else { return }
+             self.checkUserIsFavorited(user: user)
+         }
+    }
+    
+    private func checkUserIsFavorited(user: User) {
+        coreData.performCoreDataAction(.checkUserInCoreData(user) { [weak self] userExists in
+            guard let self = self else { return }
+            self.favoriteButton.backgroundColor = userExists ? .systemPink : self.heartColor.uiColor
+            self.favoriteButton.setImage(UIImage(systemName: userExists ? "heart.fill" : "heart"), for: .normal)
+            self.isFavorited = userExists
+        })
     }
     
     private func updateUser(name: String){
@@ -125,6 +143,24 @@ final class UserProfileViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func favoriteButtonTapped(_ sender: Any) {
+        configFavoriteButton()
+    }
+    
+    private func configFavoriteButton() {
+        if isFavorited {
+            coreData.performCoreDataAction(.deleteUser(user))
+            favoriteButton.backgroundColor = heartColor.uiColor
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            isFavorited = false
+        } else {
+            coreData.addUser(user: user)
+            favoriteButton.backgroundColor = .systemPink
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            isFavorited = true
+        }
+    }
 }
 
 extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource {
@@ -142,9 +178,9 @@ extension UserProfileViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-        let profileScreen = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
-        isFollowerButtonPressed ? profileScreen?.bindData(user: followerUsers[indexPath.row]) :             profileScreen?.bindData(user: followingUsers[indexPath.row])
-        self.navigationController?.pushViewController(profileScreen!, animated: true)
+        guard let profileScreen = storyBoard.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController else { return }
+        isFollowerButtonPressed ? profileScreen.bindData(user: followerUsers[indexPath.row]) :             profileScreen.bindData(user: followingUsers[indexPath.row])
+        self.navigationController?.pushViewController(profileScreen, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
